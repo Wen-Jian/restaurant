@@ -1,2 +1,15 @@
 餐廳後台
-<hi>Hi,<%= current_user.first_name if current_user %></h1>
+<h1>Hi,<%= current_user.first_name if current_user %></h1>
+
+<ul>
+  <% @restaurants.each do |restaurant|  %>
+  <li>
+    <%= restaurant.name %>
+    <%= link_to 'show', admin_restaurant_path(restaurant) %>
+    <%= link_to 'edit', edit_admin_restaurant_path(restaurant) %>
+    <%= link_to 'delete', admin_restaurant_path(restaurant),method: :delete, data:{confirm:"Are you sure?"}%>
+    <%= link_to 'blog', blog_path(blog)%>
+  </li>
+  <% end %>
+  </ul>
+<%= link_to 'New Restaurant', new_admin_restaurant_path %>

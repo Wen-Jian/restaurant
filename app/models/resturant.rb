@@ -1,9 +1,9 @@
 class Resturant < ApplicationRecord
 
   belongs_to :user
-  has_many :blogs, foreign_key: "resturant_id"
-  has_many :comments , through: :blogs, foreign_key: "resturant_id"
-  has_many :evaluations, foreign_key: "resturant_id"
+  has_many :blogs
+  has_many :comments , through: :blogs
+  has_many :evaluations
 
 
 end

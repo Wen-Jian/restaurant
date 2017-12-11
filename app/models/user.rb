@@ -10,12 +10,11 @@ validates_presence_of :admin
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :resturants, foreign_key: "user_id"
-  has_many :blogs, foreign_key: "user_id"
-  has_many :comments, foreign_key: "user_id"
-  has_many :likes, foreign_key: "user_id"
-  has_many :evaluations, foreign_key: "user_id"
-
+  has_many :resturants
+  has_many :blogs
+  has_many :comments
+  has_many :likes
+  has_many :evaluations
 
 
   validates_presence_of :name

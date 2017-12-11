@@ -1,0 +1,36 @@
+<%= form_for  [:admin, @restaurant] do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+
+  <%= f.label :seat, "可容納人數" %>
+  <%= f.text_field :seat %>
+
+  <%= f.label :minimum_order, "minimum_order" %>
+  <%= f.text_field :minimum_order %>
+
+  <%= f.label :phone, "phone" %>
+  <%= f.text_field :phone %>
+
+  <%= f.label :photo, "photo" %>
+  <%= f.text_field :photo %>
+
+
+
+
+  <%= f.submit %>
+<% end %>
+
+
+
+
+<% if @restaurant.errors.any? %>
+  <h2>We have some errors here !</h2>
+  <ul>
+    <% @restaurant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>

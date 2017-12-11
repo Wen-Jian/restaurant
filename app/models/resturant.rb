@@ -6,4 +6,7 @@ class Resturant < ApplicationRecord
   has_many :evaluations
 
 
+  validates_presence_of :name
+
+
 end

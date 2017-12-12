@@ -1,4 +1,4 @@
-<%= form_for  [:admin, @restaurant] do |f| %>
+<%= form_for @restaurant,:url => admin_restaurants_path do |f| %>
   <%= f.label :name, "Name" %>
   <%= f.text_field :name %>
 
@@ -17,6 +17,14 @@
   <%= f.label :photo, "photo" %>
   <%= f.text_field :photo %>
 
+  <%= f.label :open_time, "open_time" %>
+  <%= f.text_field :open_time %>
+
+  <%= f.label :dining_time, "dining_time" %>
+  <%= f.text_field :dining_time %>
+
+  <%= f.label :close_time, "close_time" %>
+  <%= f.text_field :close_time %>
 
 
 

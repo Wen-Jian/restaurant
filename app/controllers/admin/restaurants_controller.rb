@@ -5,9 +5,11 @@ class Admin::RestaurantsController < ApplicationController
   def index
     @restaurants = Resturant.all
   end
+
   def new
     @restaurant = Resturant.new
   end
+  
   def create
    @restaurant = Resturant.new(restaurant_params)
    if @restaurant.save
@@ -22,19 +24,9 @@ class Admin::RestaurantsController < ApplicationController
  private
 
  def restaurant_params
-   params.require(:resturant).permit(:name, :seat, :phone, :description, :photo ,:minimum_order
-   :dining_time, :close_time,:open_time)
+   params.require(:resturant).permit(:name, :seat, :phone, :description, :photo,
+      :minimum_order, :dining_time, :close_time, :open_time)
  end
-end
-
-
-
-
-
-
-
-
-
 
 
 end

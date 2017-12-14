@@ -1,0 +1,16 @@
+<div class="container">
+	
+	<%= link_to "new article", new_restaurant_blog_path(0) %>
+
+	<% @user.blogs.each do |b| %>
+
+		<a href= <%= restaurant_blog_path(b.restaurant_id, b.id) %> >
+			
+			<p><%= b.title %></p>
+
+		</a>
+
+
+	<% end %>
+
+</div>

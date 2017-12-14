@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205024429) do
+ActiveRecord::Schema.define(version: 20171214092552) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "photos"
     t.integer "user_id"
-    t.integer "resturant_id"
+    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["resturant_id"], name: "index_blogs_on_resturant_id"
+    t.integer "hot_count"
+    t.index ["restaurant_id"], name: "index_blogs_on_restaurant_id"
     t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
   create_table "commments", force: :cascade do |t|
@@ -34,57 +47,13 @@ ActiveRecord::Schema.define(version: 20171205024429) do
     t.index ["user_id"], name: "index_commments_on_user_id"
   end
 
-  create_table "commontator_comments", force: :cascade do |t|
-    t.string "creator_type"
-    t.integer "creator_id"
-    t.string "editor_type"
-    t.integer "editor_id"
-    t.integer "thread_id", null: false
-    t.text "body", null: false
-    t.datetime "deleted_at"
-    t.integer "cached_votes_up", default: 0
-    t.integer "cached_votes_down", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down"
-    t.index ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up"
-    t.index ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id"
-    t.index ["thread_id", "created_at"], name: "index_commontator_comments_on_thread_id_and_created_at"
-  end
-
-  create_table "commontator_subscriptions", force: :cascade do |t|
-    t.string "subscriber_type", null: false
-    t.integer "subscriber_id", null: false
-    t.integer "thread_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true
-    t.index ["thread_id"], name: "index_commontator_subscriptions_on_thread_id"
-  end
-
-  create_table "commontator_threads", force: :cascade do |t|
-    t.string "commontable_type"
-    t.integer "commontable_id"
-    t.datetime "closed_at"
-    t.string "closer_type"
-    t.integer "closer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
-  end
-
-  create_table "discussions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "evaluations", force: :cascade do |t|
     t.integer "level"
     t.integer "user_id"
-    t.integer "resturant"
+    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["resturant"], name: "index_evaluations_on_resturant"
+    t.index ["restaurant_id"], name: "index_evaluations_on_restaurant_id"
     t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
 
@@ -97,20 +66,22 @@ ActiveRecord::Schema.define(version: 20171205024429) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "resturants", force: :cascade do |t|
+  create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "seat"
     t.integer "minimum_order"
-    t.integer "phone"
+    t.string "phone"
     t.integer "dining_time"
-    t.integer "open_time"
+    t.string "open_time"
     t.integer "close_time"
+    t.text "address"
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.index ["user_id"], name: "index_resturants_on_user_id"
+    t.integer "eva"
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

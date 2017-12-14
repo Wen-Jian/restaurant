@@ -1,0 +1,54 @@
+<div class="container">
+	
+	<div class="information">
+		
+		<div class="store-info col-xs-12 col-sm-5 col-md-5 col-lg-5">
+			<h1><%=@rest.name %></h1>
+			<table>
+
+				<tr>
+					<th>電話</th>
+					<td><%= @rest.phone %></td>
+				</tr>
+				<tr>
+					<th>地址</th>
+					<td><%= @rest.address %></td>
+				</tr>
+				<tr>
+					<th>評價</th>
+					<td><%= @rest.eva %></td>
+				</tr>
+			</table>
+			
+		</div>
+		<div class="google-map col-xs-12 col-sm-5 col-md-5 col-lg-5">
+				<p>google-map</p>
+		</div>
+
+	</div>
+
+	<div class="content">
+
+		<div class="articles">
+			<h1>相關文章</h1>
+			<% if @rest.blogs
+			<% for i in 0..9 do %>
+
+				<div class="store-article">
+					<a href= <%=restaurant_blog_path(i, 1) %>>
+						<img src="../star_icon.jpg">
+						<div class="article-brief">
+							<h3>article title</h3>
+							<p>文章段落</p>
+						</div>
+						
+					</a>	
+				</div>
+
+			<% end %>
+		</div>		
+		
+			
+	</div>
+
+</div>

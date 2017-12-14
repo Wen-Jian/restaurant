@@ -9,5 +9,6 @@ class CreateCommments < ActiveRecord::Migration[5.1]
     end
     add_index :commments, :user_id
     add_index :commments, :blog_id
+    add_index :blogs, :restaurant_id
   end
 end

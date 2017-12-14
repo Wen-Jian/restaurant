@@ -1,3 +1,34 @@
 // Place all the styles related to the blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.article-title{
+	font-size:50px;
+	border-radius:20px;
+	box-shadow: 5px 10px 5px #888888;
+	padding-left:25px;
+}
+.article-body{
+	
+	height:800px;
+	background-color:white;
+	border-radius:30px;
+	margin-bottom:10px;
+	box-shadow: 5px 10px 5px #888888;
+}
+
+.comment{
+	
+	margin-bottom:40px;
+}
+
+.login-to-comment{
+	width:100%;
+}
+
+.comment-form{
+	margin-bottom:200px;
+}
+.comment-btn{
+	float: right;
+}
+

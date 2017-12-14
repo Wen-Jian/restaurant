@@ -6,16 +6,82 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
+    <script type="text/javascript">
+      
+      
+
+      function init () {
+
+
+        var scrollright = document.getElementById("scroll-right");
+        var scrollleft = document.getElementById("scroll-left");
+        var newarticle = document.getElementById("newarticles");
+        var scrollright_hot = document.getElementById("scroll-right-hot");
+        var scrollleft_hot = document.getElementById("scroll-left-hot");
+        var hotarticle = document.getElementById("hotarticles");
+        
+        scrollright.addEventListener("click", rightscrolling);
+        scrollleft.addEventListener("click", leftscrolling);
+        scrollright_hot.addEventListener("click", rightscrolling_hot);
+        scrollleft_hot.addEventListener("click", leftscrolling_hot);
+
+        function rightscrolling () {
+          
+          newarticle.scrollTo(newarticle.scrollLeft+300,0);
+          
+        };
+        function leftscrolling() {
+          newarticle.scrollTo(newarticle.scrollLeft-300, 0);
+        };
+        function rightscrolling_hot () {
+          
+
+          hotarticle.scrollTo(hotarticle.scrollLeft+300,0);
+        };
+        function leftscrolling_hot () {
+          
+
+          hotarticle.scrollTo(hotarticle.scrollLeft-300,0);
+        };
+
+      };
+
+      
+
+    </script>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if current_user%>
-    <%= link_to "Logout",destroy_user_session_path,method: :delete %>
-    <% else %>
-     <%= link_to "Register",new_user_registration_path %>    <%= link_to "Login",new_user_session_path %>
-     <% end %>
+
+  <body onload="init()">
+    <div class="banner navbar-fixed-top">
+      
+      <div class="logo">
+        
+        <%= link_to restaurants_path, method: :get do  %>
+          <h1>Eating-time</h1>
+
+        <% end %>
+
+      </div>
+
+      <div class="user_state">
+        <% if current_user%>
+          <p>Hello, <%= link_to "#{current_user.name}",  user_path(current_user.id)%></p>
+          <%= link_to "Logout",destroy_user_session_path,method: :delete %>
+      <% else %>
+          <%= link_to "Register",new_user_registration_path %>
+          <%= link_to "Login",new_user_session_path %>
+      <% end %>
+
+    </div>
+
+    </div>
+    
+
+    
+    
+     
     <%= yield %>
   </body>
 </html>

@@ -7,6 +7,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.js"
+        integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+        crossorigin="anonymous">
+          
+    </script>
+    
     <script type="text/javascript">
       
       
@@ -47,7 +55,19 @@
 
       };
 
-      
+      // function postcomment(){
+
+      //   alert();
+      //   var req = new XMLHttpRequset();
+      //   req.onreadystatechange = function(){
+
+      //     if (this.readyState == 4 && this.status == 200){
+      //       document.getElementById("comments").innerHTML = req.respnseText;
+      //     }
+      //   }
+      //   req.open("Get", <%= new_comment_path %>, true);
+      //   req.sen();
+      // } 
 
     </script>
   </head>

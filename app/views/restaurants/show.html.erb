@@ -31,19 +31,25 @@
 
 		<div class="articles">
 			<h1>相關文章</h1>
-			<% if @rest.blogs
-			<% for i in 0..9 do %>
+			<% if @rest.blogs != [] %>
+				<% @rest.blogs.each do %>
 
-				<div class="store-article">
-					<a href= <%=restaurant_blog_path(i, 1) %>>
-						<img src="../star_icon.jpg">
-						<div class="article-brief">
+					<div class="store-article">
+						<a href= <%=restaurant_blog_path(i, 1) %>>
+							<img src="../star_icon.jpg">
+							<div class="article-brief">
 							<h3>article title</h3>
 							<p>文章段落</p>
-						</div>
+							</div>
 						
-					</a>	
-				</div>
+						</a>	
+					</div>
+
+				<% end %>
+
+			<% else %>
+
+				<h3>尚未有文章，<%= link_to "新增文章", new_restaurant_blog_path(0) %></h3>
 
 			<% end %>
 		</div>		
@@ -52,3 +58,4 @@
 	</div>
 
 </div>
+

@@ -28,6 +28,7 @@ class RestaurantsController < ApplicationController
 	def show
 		
 		@rest = Restaurant.find(params[:id])
+		
 
 	end
 

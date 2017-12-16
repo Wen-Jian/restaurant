@@ -9,7 +9,7 @@
 		
 	</div>
 
-	<div class="comments">
+	<div class="comments", id="comments">
 		
 		<% if @comments %>
 
@@ -47,7 +47,7 @@
 				<%= f.hidden_field :blog_id, :value => @blog.id %>
 				<%= f.hidden_field :rest_id, :value => @blog.restaurant_id %>
 
-				<%= f.submit "comment", class: "btn btn-primary comment-btn" %>
+				<%= f.submit "comment", class: "btn btn-primary comment-btn", :onclick => 'postcomment' %>
 
 				
 

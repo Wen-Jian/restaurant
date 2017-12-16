@@ -48,7 +48,7 @@ class BlogsController < ApplicationController
 
 		params.require(:blog).permit(:title, 
 			    :description, :restaurant_id,
-			    :user_id )
+			    :user_id, :photos, :hot_count )
 		
 	end
 

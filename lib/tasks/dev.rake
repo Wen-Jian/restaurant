@@ -11,7 +11,7 @@ namespace :seeddata do
 				open_time: FFaker::Time.datetime,
 				phone: FFaker::PhoneNumber.short_phone_number,
 				address: FFaker::Address.street_address,
-				description: FFaker::Lorem.paragraph
+				description: FFaker::Lorem.paragraph,
 				seat: 35,
 				minimum_order: 250,
 				dining_time: 90,

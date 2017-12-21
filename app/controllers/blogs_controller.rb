@@ -64,10 +64,6 @@ class BlogsController < ApplicationController
 				@rest = Restaurant.find(params[:eva][:restaurant_id])
 				@rest.eva = (@rest.eva + @eva.level.to_i)/2
 				@rest.save
-
-				
-
-			else
 				redirect_to restaurant_path(params[:eva][:restaurant_id])
 				
 			end

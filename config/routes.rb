@@ -15,10 +15,16 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  root "restaurants#index"
+  root "blogs#index"
 
 
+  namespace :admin do
 
+  	resources :restaurants
+
+  	resources :blogs
+
+  end	
 
 
 

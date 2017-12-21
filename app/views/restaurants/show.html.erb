@@ -17,9 +17,24 @@
 				<tr>
 					<th>評價</th>
 					<td><%= @rest.eva %></td>
+
 				</tr>
 			</table>
+			<% if current_user %>
+				<%= form_for :eva, :url => restaurant_blogs_path(0) do |f|%>
+					<%= f.hidden_field :user_id, :value => current_user.id %>
+					<%= f.hidden_field :restaurant_id, :value => params[:id] %>
+
+					<%= f.text_field :level %>
+					<%= f.submit "vote", :onclick => "ajax()" %>
+				<% end %>
+
+			<% else %>	
 			
+				<p>登入後評價</p>
+				
+			<% end %>
+
 		</div>
 		<div class="google-map col-xs-12 col-sm-5 col-md-5 col-lg-5">
 				<p>google-map</p>

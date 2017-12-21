@@ -7,16 +7,16 @@ class CommentsController < ApplicationController
 
 		if @comment.save
 
-			respond_to do |format|	
+				
 				blog = Blog.find(@comment.blog_id)
 				blog[:hot_count] += 1
 				blog.save
-				# redirect_to restaurant_blog_path(params[:comment][:rest_id], params[:comment][:blog_id])
+				redirect_to restaurant_blog_path(params[:comment][:rest_id], params[:comment][:blog_id])
 			
-				format.json{render json: @comment}
-			end
+				# format.json{render json: @comment}
+			
 		else
-
+			d
 			render :controller => blogs, :action => :show
 		end	
 		

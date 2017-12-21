@@ -1,0 +1,72 @@
+<div class="container">
+  
+  <%= form_for @restaurant, :url => admin_restaurant_path(@restaurant) do |f| %>
+
+    <div class="form-group form-width">
+      
+      <%= f.label :name, "Name", class: "form-width" %>
+      <%= f.text_field :name %>
+
+    </div>
+    
+    <div class="form-group">
+      
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description %>
+
+    </div>
+
+    <div class="form-group">
+      
+      <%= f.label :seat, "可容納人數" %>
+      <%= f.text_field :seat %>
+
+    </div>
+
+    <div class="form-group">
+      
+      <%= f.label :minimum_order, "minimum_order" %>
+      <%= f.text_field :minimum_order %>
+
+    </div>
+
+    <div class="form-group">
+      
+      <%= f.label :phone, "phone" %>
+      <%= f.text_field :phone %>
+
+    </div>
+
+    <div class="form-group">
+      
+      <%= f.label :photo, "photo" %>
+      <%= f.text_field :photo %>
+
+    </div>
+
+     <div class="form-group">
+      
+      <%= f.label :open_time, "open_time" %>
+      <%= f.text_field :open_time %>
+
+    </div>
+
+     <div class="form-group">
+      
+      <%= f.label :dining_time, "dining_time" %>
+      <%= f.text_field :dining_time %>
+
+    </div>
+
+     <div class="form-group">
+      
+      <%= f.label :close_time, "close_time" %>
+      <%= f.text_field :close_time %>
+
+    </div>   
+
+    <%= f.submit"update" %>
+  <% end %>
+
+</div>
+

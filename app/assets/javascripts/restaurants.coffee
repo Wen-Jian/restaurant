@@ -2,9 +2,3 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
-// $('input[name="commit"]').click(function(e){
-	
-// 	e.preventDefault();
-
-// });

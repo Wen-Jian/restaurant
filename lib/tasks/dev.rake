@@ -16,7 +16,7 @@ namespace :seeddata do
 				minimum_order: 250,
 				dining_time: 90,
 				close_time: 2300,
-				photo: "test"
+				photo: "test",
 				eva: 3
 				
 				)

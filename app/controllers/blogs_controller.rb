@@ -65,7 +65,7 @@ class BlogsController < ApplicationController
 				@rest.eva = (@rest.eva + @eva.level.to_i)/2
 				@rest.save
 
-				render :json => @rest
+				
 
 			else
 				redirect_to restaurant_path(params[:eva][:restaurant_id])

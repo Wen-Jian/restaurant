@@ -56,8 +56,12 @@ class RestaurantsController < ApplicationController
 		
 		if params[:search] && params[:search][:query] != ""
 
-			@rest = Restaurant.find(params[:search][:query])
+			query = params[:search][:query]
+			if query.to_i != 0 && query.to_i < 500
+				
+				@rest = Restaurant.find(params[:search][:query])
 
+			end
 		elsif params[:filter]
 
 			case params[:filter]

@@ -2,7 +2,15 @@
 	
 	<p class="article-title"><%= @blog.title %></p>
 
+	<% if current_user.id == @blog.user_id%>
 
+		<div class="right">
+			
+			<%= link_to "edit", edit_restaurant_blog_path(@blog.restaurant_id, @blog.id) %>
+
+		</div>
+
+	<% end %>
 	<div class="article-body">
 
 		<%= raw @blog.description %>

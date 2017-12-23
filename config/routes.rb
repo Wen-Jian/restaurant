@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
     resources :blogs 
 
+    collection do 
+
+      get :search
+
+    end
+
   end
 
   resources :comments

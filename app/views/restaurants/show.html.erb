@@ -64,7 +64,14 @@
 
 			<% else %>
 
-				<h3>尚未有文章，<%= link_to "新增文章", new_restaurant_blog_path(0) %></h3>
+				<h3>尚未有文章
+					
+					<% if current_user %>
+
+						<%= link_to "新增文章", new_restaurant_blog_path(0) %>
+					
+					<% end %>	
+				</h3>
 
 			<% end %>
 		</div>		

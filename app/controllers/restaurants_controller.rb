@@ -52,5 +52,29 @@ class RestaurantsController < ApplicationController
 		
 	end
 
+	def search
+		
+		if params[:search] && params[:search][:query] != ""
+
+			@rest = Restaurant.find(params[:search][:query])
+
+		elsif params[:filter]
+
+			case params[:filter]
+			when "news"
+
+				@blogs = Blog.all.order('created_at DESC').limit(30)
+
+
+			when "hot"
+
+				@blogs = Blog.all.order('hot_count DESC').limit(30)
+					
+			end
+			
+		end
+		
+	end
+
 
 end

@@ -1,7 +1,7 @@
 <div class="contain">
 	
 	<div class="search-bar">
-		<%= form_for :search, :url => restaurants_path, method: :get do |f| %>
+		<%= form_for :search, :url => search_restaurants_path, method: :get do |f| %>
 			<%= f.text_field :query, placeholder: "找餐廳或地址", class: "text-field" %>
 			<button class="searchbtn btn"><img src="search-icon.png"></button>
 
@@ -46,7 +46,7 @@
 				<img  src="../star_icon.jpg">
 				<div class="link">
 						
-					<%= link_to "最新文章", restaurants_path(:filter => "news") %>
+					<%= link_to "最新文章", search_restaurants_path(:filter => "news") %>
 
 				</div>
 				
@@ -79,7 +79,7 @@
 				<img  src="star_icon.jpg">
 				<div class="link">
 						
-					<%= link_to "熱門文章", restaurants_path(:filter => "news") %>
+					<%= link_to "熱門文章", search_restaurants_path(:filter => "hot") %>
 
 				</div>
 				

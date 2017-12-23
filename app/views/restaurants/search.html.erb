@@ -1,0 +1,36 @@
+<div class="container">
+	
+	<% if @rest != [] && @rest != nil%>
+
+		<div>
+
+			<a href= <%= restaurant_path(@rest) %>>
+					
+				<h3><%= @rest.name %></h3>
+				<p><%= @rest.description %></p>
+
+			</a>
+				
+
+		</div>
+
+	<% elsif @blogs %>
+
+		<% @blogs.each do |b| %>
+
+			<a href= <%= restaurant_blog_path(b.restaurant_id, b.id) %>>
+					
+				<h3><%= b.title %></h3>
+				
+
+			</a>
+
+		<% end %>
+
+	<% else %>
+
+		<h3>there isn't any blog or restaurant in rescord !</h3>
+
+	<% end %>
+
+</div>
